@@ -29,6 +29,7 @@ Attributes of a marble:
   2. color (string, css color names)
   3. size (int, size in mm)
   4. owner (string)
+  5. file (string)
 
 We are going to create a UI that can set these values and store them in our blockchain's ledger.
 The marble is really a key value pair.
@@ -295,6 +296,7 @@ __/chaincode/marbles.go__
         Color      string        `json:"color"`
         Size       int           `json:"size"`
         Owner      OwnerRelation `json:"owner"`
+	File     string          `json:"owner"`
     }
 ```
 
@@ -396,6 +398,7 @@ __/utils/websocket_server_side.js__
                 marble_owner: data.username,
                 owners_company: data.company,
                 owner_id: data.owner_id,
+		file: data.file,
                 auth_company: process.env.marble_company,
             };
 
