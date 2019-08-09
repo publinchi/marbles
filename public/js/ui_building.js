@@ -31,7 +31,8 @@ function build_marble(marble) {
 	if (auditingMarble && marble.id === auditingMarble.id) auditing = 'auditingMarble';
 
 	html += '<span id="' + marble.id + '" class="ball ' + size + ' ' + colorClass + ' ' + auditing + ' title="' + marble.id + '"';
-	html += ' username="' + marble.owner.username + '" company="' + marble.owner.company + '" owner_id="' + marble.owner.id + '"></span>';
+	html += ' username="' + marble.owner.username + '" company="' + marble.owner.company + '" owner_id="' + marble.owner.id + '"'
+	html += ' file="' + marble.file + '"></span>';
 
 	$('.marblesWrap[owner_id="' + marble.owner.id + '"]').find('.innerMarbleWrap').prepend(html);
 	$('.marblesWrap[owner_id="' + marble.owner.id + '"]').find('.noMarblesMsg').hide();
@@ -196,10 +197,12 @@ function build_a_tx(data, pos) {
 	var username = '-';
 	var company = '-';
 	var id = '-';
+	var file = '-';
 	if (data && data.value && data.value.owner && data.value.owner.username) {
 		username = data.value.owner.username;
 		company = data.value.owner.company;
 		id = data.value.owner.id;
+		file = data.value.file;
 	}
 
 	html += `<div class="txDetails">
@@ -219,6 +222,10 @@ function build_a_tx(data, pos) {
 				<p>
 					<div class="marbleLegend">Ower Id: </div>
 					<div class="marbleName">` + id + `</div>
+				</p>
+				<p>
+					<div class="marbleLegend">File: </div>
+					<div class="marbleName">` + file + `</div>
 				</p>
 			</div>`;
 	return html;
