@@ -295,6 +295,7 @@ __/chaincode/marbles.go__
         Color      string        `json:"color"`
         Size       int           `json:"size"`
         Owner      OwnerRelation `json:"owner"`
+	File     string          `json:"owner"`
     }
 ```
 
@@ -396,6 +397,7 @@ __/utils/websocket_server_side.js__
                 marble_owner: data.username,
                 owners_company: data.company,
                 owner_id: data.owner_id,
+		file: data.file,
                 auth_company: process.env.marble_company,
             };
 
