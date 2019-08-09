@@ -87,7 +87,7 @@ You should have already downloaded this file from the service during the [instal
 				}
 			},
 			"chaincodes": [
-				"marbles:v4"
+				"marbles:v5"
 			],
 			"x-blockDelay": 10000
 		}
