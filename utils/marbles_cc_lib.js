@@ -93,7 +93,8 @@ module.exports = function (enrollObj, g_options, fcw, logger) {
 				options.args.color,
 				options.args.size,
 				options.args.owner_id,
-				options.args.auth_company
+				options.args.auth_company,
+				options.args.file
 			],
 		};
 		fcw.invoke_chaincode(enrollObj, opts, function (err, resp) {

@@ -31,7 +31,7 @@ import (
 
 // ============================================================================================================================
 // write() - genric write variable into ledger
-// 
+//
 // Shows Off PutState() - writting a key/value into the ledger
 //
 // Inputs - Array of strings
@@ -67,7 +67,7 @@ func write(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 
 // ============================================================================================================================
 // delete_marble() - remove a marble from state and from marble index
-// 
+//
 // Shows Off DelState() - "removing"" a key/value from the ledger
 //
 // Inputs - Array of strings
@@ -127,8 +127,8 @@ func init_marble(stub shim.ChaincodeStubInterface, args []string) (pb.Response) 
 	var err error
 	fmt.Println("starting init_marble")
 
-	if len(args) != 5 {
-		return shim.Error("Incorrect number of arguments. Expecting 5")
+	if len(args) != 6 {
+		return shim.Error("Incorrect number of arguments. Expecting 6")
 	}
 
 	//input sanitation
@@ -142,6 +142,7 @@ func init_marble(stub shim.ChaincodeStubInterface, args []string) (pb.Response) 
 	owner_id := args[3]
 	authed_by_company := args[4]
 	size, err := strconv.Atoi(args[2])
+	file := args[5]
 	if err != nil {
 		return shim.Error("3rd argument must be a numeric string")
 	}
@@ -176,7 +177,8 @@ func init_marble(stub shim.ChaincodeStubInterface, args []string) (pb.Response) 
 			"id": "` + owner_id + `", 
 			"username": "` + owner.Username + `", 
 			"company": "` + owner.Company + `"
-		}
+		},
+		"file": "` + file + `"
 	}`
 	err = stub.PutState(id, []byte(str))                         //store marble with id as key
 	if err != nil {
@@ -246,7 +248,7 @@ func init_owner(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 // Inputs - Array of Strings
 //       0     ,        1      ,        2
 //  marble id  ,  to owner id  , company that auth the transfer
-// "m999999999", "o99999999999", united_mables" 
+// "m999999999", "o99999999999", united_mables"
 // ============================================================================================================================
 func set_owner(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	var err error
@@ -311,7 +313,7 @@ func set_owner(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 // Shows off PutState()
 //
 // Inputs - Array of Strings
-//       0     ,        1      
+//       0     ,        1
 //  owner id       , company that auth the transfer
 // "o9999999999999", "united_mables"
 // ============================================================================================================================

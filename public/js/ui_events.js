@@ -35,6 +35,7 @@ $(document).on('ready', function () {
 			username: $('select[name="user"]').val(),
 			company: $('input[name="company"]').val(),
 			owner_id: $('input[name="owner_id"]').val(),
+			file: $('input[name="file"]').val(),
 			v: 1
 		};
 		console.log('creating marble, sending', obj);
@@ -163,6 +164,7 @@ $(document).on('ready', function () {
 		$('select[name="user"]').html('<option value="' + username + '">' + toTitleCase(username) + '</option>');
 		$('input[name="company"]').val(company);
 		$('input[name="owner_id"]').val(owner_id);
+		$('input[name="file"]').val('');
 	});
 
 	//close create marble panel
