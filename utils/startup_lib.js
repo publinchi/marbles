@@ -218,7 +218,7 @@ module.exports = function (logger, cp, fcw, marbles_lib, ws_server) {
 				if (err == null) {
 
 					var marbles = [];
-					var marblesEach = 3;												//number of marbles each owner gets
+					var marblesEach = 0;												//number of marbles each owner gets
 					for (var i in owners) {
 						for (var x = 0; x < marblesEach; x++) {
 							marbles.push(owners[i]);
