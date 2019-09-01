@@ -166,7 +166,7 @@ $(document).on('ready', function () {
 		$('input[name="owner_id"]').val(owner_id);
 		$('input[name="file"]').val('');
 		$('input[name="files"]').val('');
-		$('input[name="list"]').val('');
+		$('input[name="list"]').empty();
 	});
 
 	//close create marble panel
