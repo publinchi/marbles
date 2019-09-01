@@ -10,7 +10,7 @@
 		
 		form(action="/create" method="POST")#createform
 			legend
-				input(id="files" type="file" name="files")
+				input(id="files" type="file" name="files" onchange='onFileSelect();')
 			br
 			legend
 				output(id="list" name="list")
@@ -44,30 +44,42 @@
 				span Create
 					
 	script(type='text/javascript').
-		function handleFileSelect(evt) {
-			var files = evt.target.files; // FileList object
+		function onFileSelect() {
+        	var reader = new FileReader();
+        	reader.addEventListener('load',function () {
+          		var hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(this.result));
+          		var md5 = hash.toString(CryptoJS.enc.Hex)
+          		var filename = document.getElementById("files").value.split('/').pop().split('\\').pop();
+          		var output = "MD5 (" + filename + ") = " + md5
+          		console.log(output);
+          		//document.getElementById("md5").innerText = output
+        	});
+        	reader.readAsBinaryString(document.getElementById("files").files[0]);
+      	}
+		//function handleFileSelect(evt) {
+		//	var files = evt.target.files; // FileList object
 
 			// files is a FileList of File objects. List some properties.
-			var output = [];
-			var reader = new FileReader();
-			var archivo;
-			for (var i = 0, f; f = files[i]; i++) {
-				output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-				f.size, ' bytes</li> </br>',
-				'<li><strong>last modified: </strong>',
-				f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-				'</li>');
-				archivo = f;
-				alert('0' + f);
-				alert('1' + archivo);
-				//var s = reader.readAsBinaryString(archivo);
-				//alert('2' + s);
-			}
-			//var hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(archivo));
-			var hash = CryptoJS.MD5(archivo);
-			alert('2' + hash);
-			var md5 = hash.toString(CryptoJS.enc.Hex)
-			alert(md5);
-			document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
-		}
-		document.getElementById('files').addEventListener('change', handleFileSelect, false);
+		//	var output = [];
+		//	var reader = new FileReader();
+		//	var archivo;
+		//	for (var i = 0, f; f = files[i]; i++) {
+		//		output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+		//		f.size, ' bytes</li> </br>',
+		//		'<li><strong>last modified: </strong>',
+		//		f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+		//		'</li>');
+		//		archivo = f;
+		//		alert('0' + f.size);
+		//		alert('1' + archivo.size);
+		//		//var s = reader.readAsBinaryString(archivo);
+		//		//alert('2' + s);
+		//	}
+		//	//var hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(archivo));
+		//	var hash = CryptoJS.MD5(archivo);
+		//	alert('2' + hash);
+		//	var md5 = hash.toString(CryptoJS.enc.Hex)
+		//	alert(md5);
+		//	document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+		//}
+		//document.getElementById('files').addEventListener('change', handleFileSelect, false);
