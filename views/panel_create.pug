@@ -55,6 +55,7 @@
 				'<li><strong>last modified: </strong>',
 				f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
 				'</li>');
+				alert(b64_md5(f).toLowerCase());
 			}
 			document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 		}
