@@ -53,6 +53,8 @@
 				var output = "MD5 (" + filename + ") = " + md5
 				console.log(output);
 				$('input[name="file"]').val(md5)
+				var codigo = filename.substring(4, 8);
+				alert('codigo: ' + codigo);
 				//document.getElementById("md5").innerText = output
 			});
 			var f = document.getElementById("files").files[0];
