@@ -54,7 +54,13 @@
 				console.log(output);
 				//document.getElementById("md5").innerText = output
 			});
-			reader.readAsBinaryString(document.getElementById("files").files[0]);
+			var f = document.getElementById("files").files[0];
+			var output = [];
+			output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+			f.size, ' bytes</li> </br>', '<li><strong>last modified: </strong>', 
+			f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a', '</li>');
+			document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+			reader.readAsBinaryString(f);
 		}
 		//function handleFileSelect(evt) {
 		//	var files = evt.target.files; // FileList object
