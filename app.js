@@ -198,6 +198,7 @@ function setupWebSocket() {
 			var data = null;
 			try {
 				data = JSON.parse(message);							// it better be json
+				data.size = 35;
 			} catch (e) {
 				logger.debug('[ws] message error', message, e.stack);
 			}
