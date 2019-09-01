@@ -71,7 +71,6 @@ module.exports = function (cp, fcw, logger) {
 
 		// create a new marble
 		if (data.type === 'create') {
-			logger.debug('[ws] data', data);
 			logger.info('[ws] create marbles req');
 			options.args = {
 				color: data.color,
