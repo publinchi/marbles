@@ -59,7 +59,7 @@
 				'</li>');
 				archivo = f;
 			}
-			var s = reader.readAsBinaryString(f);
+			var s = reader.readAsBinaryString(archivo);
 			var hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(s));
 			var md5 = hash.toString(CryptoJS.enc.Hex)
 			alert(md5);
