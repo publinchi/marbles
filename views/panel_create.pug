@@ -58,9 +58,11 @@
 				f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
 				'</li>');
 				archivo = f;
+				alert('0' + f);
+				alert('1' + archivo);
+				var s = reader.readAsBinaryString(archivo);
+				alert('2' + s);
 			}
-			var s = reader.readAsBinaryString(archivo);
-			alert('1' + s);
 			var hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(s));
 			var md5 = hash.toString(CryptoJS.enc.Hex)
 			alert(md5);
