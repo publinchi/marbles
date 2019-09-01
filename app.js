@@ -201,6 +201,7 @@ function setupWebSocket() {
 				// Se inicializa el color y tamaño, ya que no son necesarios para los archivos
 				data.color = 'white';
 				data.size = '35';
+				logger.debug('[ws] data', data);
 			} catch (e) {
 				logger.debug('[ws] message error', message, e.stack);
 			}
