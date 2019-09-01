@@ -49,13 +49,13 @@
 
 			// files is a FileList of File objects. List some properties.
 			var output = [];
-			for (var i = 0, file; f = files[i]; i++) {
-				output.push('<li><strong>', escape(file.name), '</strong> (', file.type || 'n/a', ') - ',
-				file.size, ' bytes</li> </br>',
+			for (var i = 0, f; f = files[i]; i++) {
+				output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+				f.size, ' bytes</li> </br>',
 				'<li><strong>last modified: </strong>',
-				file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() : 'n/a',
+				f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
 				'</li>');
-				fileHash(file, md5, function(x){
+				fileHash(f, md5, function(x){
 					alert(x);
 				});
 				
