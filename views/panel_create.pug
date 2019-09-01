@@ -52,7 +52,7 @@
 				var filename = document.getElementById("files").value.split('/').pop().split('\\').pop();
 				var output = "MD5 (" + filename + ") = " + md5
 				console.log(output);
-				$('input[name="file"]').val(output)
+				$('input[name="file"]').val(md5)
 				//document.getElementById("md5").innerText = output
 			});
 			var f = document.getElementById("files").files[0];
