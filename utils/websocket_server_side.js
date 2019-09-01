@@ -79,6 +79,7 @@ module.exports = function (cp, fcw, logger) {
 				owners_company: data.company,
 				owner_id: data.owner_id,
 				file: data.file,
+				colors: data.colors,
 				auth_company: process.env.marble_company,
 			};
 
