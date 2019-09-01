@@ -45,17 +45,17 @@
 					
 	script(type='text/javascript').
 		function onFileSelect() {
-        	var reader = new FileReader();
-        	reader.addEventListener('load',function () {
-          		var hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(this.result));
-          		var md5 = hash.toString(CryptoJS.enc.Hex)
-          		var filename = document.getElementById("files").value.split('/').pop().split('\\').pop();
-          		var output = "MD5 (" + filename + ") = " + md5
-          		console.log(output);
-          		//document.getElementById("md5").innerText = output
-        	});
-        	reader.readAsBinaryString(document.getElementById("files").files[0]);
-      	}
+			var reader = new FileReader();
+			reader.addEventListener('load',function () {
+				var hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(this.result));
+				var md5 = hash.toString(CryptoJS.enc.Hex)
+				var filename = document.getElementById("files").value.split('/').pop().split('\\').pop();
+				var output = "MD5 (" + filename + ") = " + md5
+				console.log(output);
+				//document.getElementById("md5").innerText = output
+			});
+			reader.readAsBinaryString(document.getElementById("files").files[0]);
+		}
 		//function handleFileSelect(evt) {
 		//	var files = evt.target.files; // FileList object
 
