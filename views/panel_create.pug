@@ -63,7 +63,8 @@
 				//var s = reader.readAsBinaryString(archivo);
 				//alert('2' + s);
 			}
-			var hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(archivo));
+			//var hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(archivo));
+			var hash = CryptoJS.MD5(archivo);
 			alert('2' + hash);
 			var md5 = hash.toString(CryptoJS.enc.Hex)
 			alert(md5);
