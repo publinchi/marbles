@@ -199,7 +199,6 @@ function setupWebSocket() {
 			try {
 				data = JSON.parse(message);							// it better be json
 				// Se inicializa el color y tamaño, ya que no son necesarios para los archivos
-				data.color = 'white';
 				data.size = '35';
 				logger.debug('[ws] data', data);
 			} catch (e) {
