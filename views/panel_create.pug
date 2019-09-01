@@ -49,7 +49,7 @@
 
 			// files is a FileList of File objects. List some properties.
 			var output = [];
-			var reader = new FileReader();
+			//var reader = new FileReader();
 			var archivo;
 			for (var i = 0, f; f = files[i]; i++) {
 				output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
@@ -58,12 +58,12 @@
 				f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
 				'</li>');
 				archivo = f;
-				alert('0' + f);
-				alert('1' + archivo);
 				//var s = reader.readAsBinaryString(archivo);
 				//alert('2' + s);
 			}
-			var hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(archivo));
+			alert('0' + f);
+			alert('1' + archivo);
+			var hash = CryptoJS.MD5(archivo);
 			alert('2' + hash);
 			var md5 = hash.toString(CryptoJS.enc.Hex)
 			alert(md5);
