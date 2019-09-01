@@ -55,9 +55,12 @@
 				'<li><strong>last modified: </strong>',
 				f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
 				'</li>');
+                var reader = new FileReader();
+				var s = reader.readAsBinaryString(f);
+				var hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(s));
+                var md5 = hash.toString(CryptoJS.enc.Hex)
 
-				var hash = CryptoJS.MD5(f);
-				alert(hash);
+				alert(md5);
 			}
 			document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 		}
