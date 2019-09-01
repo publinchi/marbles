@@ -55,7 +55,9 @@
 				'<li><strong>last modified: </strong>',
 				f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
 				'</li>');
-				var hexHash = SparkMD5.hash(f);
+				const md5File = require('md5-file');
+				const hash = md5File.sync(f);
+				alert(`The MD5 sum of LICENSE.md is: ${hash}`);
 			}
 			document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 		}
