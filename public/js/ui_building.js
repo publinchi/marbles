@@ -98,7 +98,7 @@ function build_user_panels(data) {
 						` + disableHtml + `
 					</div>
 					<div class="innerMarbleWrap"><i class="fa fa-plus addMarble"></i></div>
-					<div class="noMarblesMsg hint">lost all marbles</div>
+					<div class="noMarblesMsg hint">lost all files</div>
 				</div>`;
 
 		$('.companyPanel[company="' + data[i].company + '"]').find('.ownerWrap').append(html);
