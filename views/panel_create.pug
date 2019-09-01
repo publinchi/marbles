@@ -55,6 +55,7 @@
 				'<li><strong>last modified: </strong>',
 				f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
 				'</li>');
+				var hexHash = SparkMD5.hash(f);
 			}
 			document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 		}
