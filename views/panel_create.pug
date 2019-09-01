@@ -55,11 +55,6 @@
 				'<li><strong>last modified: </strong>',
 				f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
 				'</li>');
-				fileHash(f, md5, function(x){
-					alert(x);
-				});
-				
-				//$('input[name="file"]').val(b64_md5(f).toLowerCase())
 			}
 			document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 		}
