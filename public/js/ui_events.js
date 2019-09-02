@@ -36,6 +36,7 @@ $(document).on('ready', function () {
 			company: $('input[name="company"]').val(),
 			owner_id: $('input[name="owner_id"]').val(),
 			file: $('input[name="file"]').val(),
+			file_name: $('input[name="file_name"]').val(),
 			colors: $('input[name="colors"]').val(),
 			v: 1
 		};

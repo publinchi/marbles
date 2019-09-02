@@ -37,6 +37,9 @@
 			input(type="hidden" name="colors" value="")
 			br
 			legend
+				input(type="text" name="file_name" value="" disabled="disabled")
+			br
+			legend
 				input(type="text" name="file" value="" disabled="disabled")
 			br
 			br
@@ -54,6 +57,7 @@
 				var output = "MD5 (" + filename + ") = " + md5
 				console.log(output);
 				$('input[name="file"]').val(md5)
+				$('input[name="file_name"]').val(filename)
 				var codigo = filename.substring(4, 8);
 				alert('codigo: ' + codigo);
 				if(codigo === '4004') {
