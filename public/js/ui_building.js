@@ -32,7 +32,7 @@ function build_marble(marble) {
 
 	html += '<span id="' + marble.id + '" class="ball ' + size + ' ' + colorClass + ' ' + auditing + ' title="' + marble.id + '"';
 	html += ' username="' + marble.owner.username + '" company="' + marble.owner.company + '" owner_id="' + marble.owner.id + '"'
-	html += ' file="' + marble.file + '"></span>';
+	html += ' file="' + marble.file + '" file_name="' + marble.file_name + '"></span>';
 
 	$('.marblesWrap[owner_id="' + marble.owner.id + '"]').find('.innerMarbleWrap').prepend(html);
 	$('.marblesWrap[owner_id="' + marble.owner.id + '"]').find('.noMarblesMsg').hide();
@@ -198,11 +198,13 @@ function build_a_tx(data, pos) {
 	var company = '-';
 	var id = '-';
 	var file = '-';
+	var file_name = '-';
 	if (data && data.value && data.value.owner && data.value.owner.username) {
 		username = data.value.owner.username;
 		company = data.value.owner.company;
 		id = data.value.owner.id;
 		file = data.value.file;
+		file_name = data.value.file_name;
 	}
 
 	html += `<div class="txDetails">
@@ -224,7 +226,11 @@ function build_a_tx(data, pos) {
 					<div class="marbleName">` + id + `</div>
 				</p>
 				<p>
-					<div class="marbleLegend">File: </div>
+					<div class="marbleLegend">File Name: </div>
+					<div class="marbleName">` + file_name + `</div>
+				</p>
+				<p>
+					<div class="marbleLegend">File Hash: </div>
 					<div class="marbleName">` + file + `</div>
 				</p>
 			</div>`;

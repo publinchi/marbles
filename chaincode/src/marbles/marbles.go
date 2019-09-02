@@ -43,6 +43,7 @@ type Marble struct {
 	Size       int           `json:"size"`    //size in mm of marble
 	Owner      OwnerRelation `json:"owner"`
 	File       string        `json:"file"`
+	FileName       string        `json:"file_name"`
 }
 
 // ----- Owners ----- //
