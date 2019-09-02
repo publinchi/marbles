@@ -167,6 +167,7 @@ $(document).on('ready', function () {
 		$('input[name="company"]').val(company);
 		$('input[name="owner_id"]').val(owner_id);
 		$('input[name="file"]').val('');
+		$('input[name="file_name"]').val('');
 		$('input[name="files"]').val('');
 		document.getElementById('list').innerHTML = '';
 	});
