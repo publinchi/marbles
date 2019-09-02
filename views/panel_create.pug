@@ -59,13 +59,16 @@
 				$('input[name="file"]').val(md5)
 				$('input[name="file_name"]').val(filename)
 				var codigo = filename.substring(4, 8);
+				var color; 
 				if(codigo === '4004') {
-				    $('input[name="colors"]').val('green')	
+					color = 'green'
 				} else if(codigo === '3441') {
-					$('input[name="colors"]').val('white')	
+					color = 'white'
 				} else if(codigo === '3456') {
-					$('input[name="colors"]').val('red')	
+					color = 'red'
 				}
+				$('input[name="colors"]').val(color)	
+				$('.createball').css('border', '0').addClass(color + 'bg');
 				$('input[name="file"]').val(md5)
 				//document.getElementById("md5").innerText = output
 			});
